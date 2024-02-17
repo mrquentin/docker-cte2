@@ -77,7 +77,7 @@ jobs:
 
       - name: Get Server File infos
         run: |
-          curl -H "x-api-key: $API_KEY" "https://api.curseforge.com/v1/mods/$PROJECT_ID/files" | jq -r --args version "$PROJECT_VERSION" '.data[0] | select(.fileName | contains($version)) | {fileName, serverPackFileId}'
+          curl -H "x-api-key: $API_KEY" "https://api.curseforge.com/v1/mods/$PROJECT_ID/files" | jq -r --arg version "$PROJECT_VERSION" '.data[] | select(.fileName | contains($version)) | {fileName, serverPackFileId}' > server-file-info.json
 
       - name: Test output
         run: |
