@@ -23,7 +23,6 @@ if ! [[ -f "Server-Files-$PROJECT_VERSION.zip" ]]; then
   java -jar "${FORGE_INSTALLER}" --installServer
 fi
 
-sed -i 's/server-port.*/server-port=25565/g' server.properties
 chmod 755 run.sh
 
 ./run.sh
