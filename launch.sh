@@ -20,7 +20,6 @@ if ! [[ -f "Server-Files-$PROJECT_VERSION.zip" ]]; then
   curl -Lo "Server-Files-$PROJECT_VERSION.zip" "https://edge.forgecdn.net/files/${serverPackFileId:0:4}/${serverPackFileId:4}/${fileName// /%20}" || exit 9
   unzip -u -o "Server-Files-$PROJECT_VERSION.zip" -d /data
   FORGE_INSTALLER=$(find . -name "forge-*-installer.jar")
-  unzip "Server-Files-$PROJECT_VERSION.zip"
   java -jar "${FORGE_INSTALLER}" --installServer
 fi
 
